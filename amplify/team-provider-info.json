@@ -16,7 +16,14 @@
         "kinetecoee0f4718": {}
       },
       "api": {
-        "kineteco": {}
+        "kineteco": {},
+        "kinetecocv6p1": {}
+      },
+      "function": {
+        "kineteco7m6cvv13w37": {
+          "deploymentBucketName": "amplify-kineteco-dev-af6fe-deployment",
+          "s3Key": "amplify-builds/kineteco7m6cvv13w37-5164354c536146365775-build.zip"
+        }
       }
     }
   }

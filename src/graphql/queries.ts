@@ -44,3 +44,43 @@ export const listProducts = /* GraphQL */ `query ListProducts(
   APITypes.ListProductsQueryVariables,
   APITypes.ListProductsQuery
 >;
+export const getPersons = /* GraphQL */ `query GetPersons($id: ID!) {
+  getPersons(id: $id) {
+    id
+    dynamicSlug
+    fullName
+    title
+    description
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetPersonsQueryVariables,
+  APITypes.GetPersonsQuery
+>;
+export const listPersons = /* GraphQL */ `query ListPersons(
+  $filter: ModelPersonsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPersons(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      dynamicSlug
+      fullName
+      title
+      description
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListPersonsQueryVariables,
+  APITypes.ListPersonsQuery
+>;

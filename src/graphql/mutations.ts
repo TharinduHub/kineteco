@@ -59,3 +59,60 @@ export const deleteProduct = /* GraphQL */ `mutation DeleteProduct(
   APITypes.DeleteProductMutationVariables,
   APITypes.DeleteProductMutation
 >;
+export const createPersons = /* GraphQL */ `mutation CreatePersons(
+  $input: CreatePersonsInput!
+  $condition: ModelPersonsConditionInput
+) {
+  createPersons(input: $input, condition: $condition) {
+    id
+    dynamicSlug
+    fullName
+    title
+    description
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreatePersonsMutationVariables,
+  APITypes.CreatePersonsMutation
+>;
+export const updatePersons = /* GraphQL */ `mutation UpdatePersons(
+  $input: UpdatePersonsInput!
+  $condition: ModelPersonsConditionInput
+) {
+  updatePersons(input: $input, condition: $condition) {
+    id
+    dynamicSlug
+    fullName
+    title
+    description
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdatePersonsMutationVariables,
+  APITypes.UpdatePersonsMutation
+>;
+export const deletePersons = /* GraphQL */ `mutation DeletePersons(
+  $input: DeletePersonsInput!
+  $condition: ModelPersonsConditionInput
+) {
+  deletePersons(input: $input, condition: $condition) {
+    id
+    dynamicSlug
+    fullName
+    title
+    description
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeletePersonsMutationVariables,
+  APITypes.DeletePersonsMutation
+>;

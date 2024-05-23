@@ -5,7 +5,7 @@
 export type CreateProductInput = {
   id?: string | null,
   dynamicSlug: string,
-  productName?: string | null,
+  productName: string,
 };
 
 export type ModelProductConditionInput = {
@@ -62,7 +62,7 @@ export type Product = {
   __typename: "Product",
   id: string,
   dynamicSlug: string,
-  productName?: string | null,
+  productName: string,
   createdAt: string,
   updatedAt: string,
 };
@@ -74,6 +74,49 @@ export type UpdateProductInput = {
 };
 
 export type DeleteProductInput = {
+  id: string,
+};
+
+export type CreatePersonsInput = {
+  id?: string | null,
+  dynamicSlug: string,
+  fullName: string,
+  title: string,
+  description: string,
+};
+
+export type ModelPersonsConditionInput = {
+  dynamicSlug?: ModelStringInput | null,
+  fullName?: ModelStringInput | null,
+  title?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelPersonsConditionInput | null > | null,
+  or?: Array< ModelPersonsConditionInput | null > | null,
+  not?: ModelPersonsConditionInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+};
+
+export type Persons = {
+  __typename: "Persons",
+  id: string,
+  dynamicSlug: string,
+  fullName: string,
+  title: string,
+  description: string,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdatePersonsInput = {
+  id: string,
+  dynamicSlug?: string | null,
+  fullName?: string | null,
+  title?: string | null,
+  description?: string | null,
+};
+
+export type DeletePersonsInput = {
   id: string,
 };
 
@@ -107,6 +150,25 @@ export type ModelIDInput = {
 export type ModelProductConnection = {
   __typename: "ModelProductConnection",
   items:  Array<Product | null >,
+  nextToken?: string | null,
+};
+
+export type ModelPersonsFilterInput = {
+  id?: ModelIDInput | null,
+  dynamicSlug?: ModelStringInput | null,
+  fullName?: ModelStringInput | null,
+  title?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelPersonsFilterInput | null > | null,
+  or?: Array< ModelPersonsFilterInput | null > | null,
+  not?: ModelPersonsFilterInput | null,
+};
+
+export type ModelPersonsConnection = {
+  __typename: "ModelPersonsConnection",
+  items:  Array<Persons | null >,
   nextToken?: string | null,
 };
 
@@ -150,6 +212,18 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
+export type ModelSubscriptionPersonsFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  dynamicSlug?: ModelSubscriptionStringInput | null,
+  fullName?: ModelSubscriptionStringInput | null,
+  title?: ModelSubscriptionStringInput | null,
+  description?: ModelSubscriptionStringInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionPersonsFilterInput | null > | null,
+  or?: Array< ModelSubscriptionPersonsFilterInput | null > | null,
+};
+
 export type CreateProductMutationVariables = {
   input: CreateProductInput,
   condition?: ModelProductConditionInput | null,
@@ -160,7 +234,7 @@ export type CreateProductMutation = {
     __typename: "Product",
     id: string,
     dynamicSlug: string,
-    productName?: string | null,
+    productName: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -176,7 +250,7 @@ export type UpdateProductMutation = {
     __typename: "Product",
     id: string,
     dynamicSlug: string,
-    productName?: string | null,
+    productName: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -192,7 +266,61 @@ export type DeleteProductMutation = {
     __typename: "Product",
     id: string,
     dynamicSlug: string,
-    productName?: string | null,
+    productName: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreatePersonsMutationVariables = {
+  input: CreatePersonsInput,
+  condition?: ModelPersonsConditionInput | null,
+};
+
+export type CreatePersonsMutation = {
+  createPersons?:  {
+    __typename: "Persons",
+    id: string,
+    dynamicSlug: string,
+    fullName: string,
+    title: string,
+    description: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdatePersonsMutationVariables = {
+  input: UpdatePersonsInput,
+  condition?: ModelPersonsConditionInput | null,
+};
+
+export type UpdatePersonsMutation = {
+  updatePersons?:  {
+    __typename: "Persons",
+    id: string,
+    dynamicSlug: string,
+    fullName: string,
+    title: string,
+    description: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeletePersonsMutationVariables = {
+  input: DeletePersonsInput,
+  condition?: ModelPersonsConditionInput | null,
+};
+
+export type DeletePersonsMutation = {
+  deletePersons?:  {
+    __typename: "Persons",
+    id: string,
+    dynamicSlug: string,
+    fullName: string,
+    title: string,
+    description: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -207,7 +335,7 @@ export type GetProductQuery = {
     __typename: "Product",
     id: string,
     dynamicSlug: string,
-    productName?: string | null,
+    productName: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -226,7 +354,47 @@ export type ListProductsQuery = {
       __typename: "Product",
       id: string,
       dynamicSlug: string,
-      productName?: string | null,
+      productName: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetPersonsQueryVariables = {
+  id: string,
+};
+
+export type GetPersonsQuery = {
+  getPersons?:  {
+    __typename: "Persons",
+    id: string,
+    dynamicSlug: string,
+    fullName: string,
+    title: string,
+    description: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListPersonsQueryVariables = {
+  filter?: ModelPersonsFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListPersonsQuery = {
+  listPersons?:  {
+    __typename: "ModelPersonsConnection",
+    items:  Array< {
+      __typename: "Persons",
+      id: string,
+      dynamicSlug: string,
+      fullName: string,
+      title: string,
+      description: string,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -243,7 +411,7 @@ export type OnCreateProductSubscription = {
     __typename: "Product",
     id: string,
     dynamicSlug: string,
-    productName?: string | null,
+    productName: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -258,7 +426,7 @@ export type OnUpdateProductSubscription = {
     __typename: "Product",
     id: string,
     dynamicSlug: string,
-    productName?: string | null,
+    productName: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -273,7 +441,58 @@ export type OnDeleteProductSubscription = {
     __typename: "Product",
     id: string,
     dynamicSlug: string,
-    productName?: string | null,
+    productName: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreatePersonsSubscriptionVariables = {
+  filter?: ModelSubscriptionPersonsFilterInput | null,
+};
+
+export type OnCreatePersonsSubscription = {
+  onCreatePersons?:  {
+    __typename: "Persons",
+    id: string,
+    dynamicSlug: string,
+    fullName: string,
+    title: string,
+    description: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdatePersonsSubscriptionVariables = {
+  filter?: ModelSubscriptionPersonsFilterInput | null,
+};
+
+export type OnUpdatePersonsSubscription = {
+  onUpdatePersons?:  {
+    __typename: "Persons",
+    id: string,
+    dynamicSlug: string,
+    fullName: string,
+    title: string,
+    description: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeletePersonsSubscriptionVariables = {
+  filter?: ModelSubscriptionPersonsFilterInput | null,
+};
+
+export type OnDeletePersonsSubscription = {
+  onDeletePersons?:  {
+    __typename: "Persons",
+    id: string,
+    dynamicSlug: string,
+    fullName: string,
+    title: string,
+    description: string,
     createdAt: string,
     updatedAt: string,
   } | null,

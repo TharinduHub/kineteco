@@ -50,3 +50,51 @@ export const onDeleteProduct = /* GraphQL */ `subscription OnDeleteProduct($filt
   APITypes.OnDeleteProductSubscriptionVariables,
   APITypes.OnDeleteProductSubscription
 >;
+export const onCreatePersons = /* GraphQL */ `subscription OnCreatePersons($filter: ModelSubscriptionPersonsFilterInput) {
+  onCreatePersons(filter: $filter) {
+    id
+    dynamicSlug
+    fullName
+    title
+    description
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreatePersonsSubscriptionVariables,
+  APITypes.OnCreatePersonsSubscription
+>;
+export const onUpdatePersons = /* GraphQL */ `subscription OnUpdatePersons($filter: ModelSubscriptionPersonsFilterInput) {
+  onUpdatePersons(filter: $filter) {
+    id
+    dynamicSlug
+    fullName
+    title
+    description
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdatePersonsSubscriptionVariables,
+  APITypes.OnUpdatePersonsSubscription
+>;
+export const onDeletePersons = /* GraphQL */ `subscription OnDeletePersons($filter: ModelSubscriptionPersonsFilterInput) {
+  onDeletePersons(filter: $filter) {
+    id
+    dynamicSlug
+    fullName
+    title
+    description
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeletePersonsSubscriptionVariables,
+  APITypes.OnDeletePersonsSubscription
+>;

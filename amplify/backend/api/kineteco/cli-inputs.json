@@ -8,6 +8,13 @@
       "cognitoUserPoolId": "authkinetecoee0f4718"
     },
     "conflictResolution": {},
-    "additionalAuthTypes": []
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 7,
+        "apiKeyExpirationDate": "2024-05-30T11:11:10.111Z",
+        "keyDescription": "hsport amplify set api"
+      }
+    ]
   }
 }

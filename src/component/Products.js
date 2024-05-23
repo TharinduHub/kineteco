@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { generateClient } from "aws-amplify/api";
-// import { Schema } from '../amplify/backend/api/kineteco';
+import { generateClient, get } from "aws-amplify/api";
 import ProductItem from './ProductItem';
-// import productData from './data/products.json'
 
 const client = generateClient();
 
@@ -23,11 +21,19 @@ const Products = () => {
   const [productData, setProductData] = useState([]);
 
   const loadProductData = async () => {
+    
     const { data } = await client.graphql(
-      { query: listProducts }
+      { query: listProducts, authMode: 'apiKey' }
     );
 
     setProductData(data?.listProducts?.items);
+
+    const { body } = await get({
+      apiName:"kinetecocv6p1",
+      path:"/cvinfo",
+    }).response;
+    const json = await body.json();
+    console.log(json);
   }
 
   useEffect(() => {
