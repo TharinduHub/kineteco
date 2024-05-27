@@ -17,35 +17,39 @@ const s3 = new S3({ region: process.env.AWS_REGION });
 exports.handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
 
-    // const cvs = {
-    //     'cv': 'psw1',
-    //     'tharindu': 'psw2',
-    //     'cv1': 'psw3',
-    //     'cv2': 'psw4',
-    // };
+    const cvs = {
+        'cv': 'psw1',
+      'tharindu': ['psw2', 'psw3', 'psw4'],
+      'cv1': ['psw7', 'psw8', 'psw9'],
+      'cv2': 'psw4',
+    };
 
-    // const isBase64Encoded = event.isBase64Encoded;
-    // let body;
-    // if (isBase64Encoded) {
-    //     const decodedString = Buffer.from(event.body, 'base64').toString('utf-8');
-    //     body = JSON.parse(decodedString);
-    // } else {
-    //     body = JSON.parse(event.body);
-    // }
-    // const { cvid, password } = body;
+    const isBase64Encoded = event.isBase64Encoded;
+    let body;
+    if (isBase64Encoded) {
+        const decodedString = Buffer.from(event.body, 'base64').toString('utf-8');
+        body = JSON.parse(decodedString);
+    } else {
+        body = JSON.parse(event.body);
+    }
+    const { cvid, password } = body;
 
-    // const validateUser = (un, pw) => {
-    //     return cvs[un] === pw;
-    // };
+    const validateUser = (un, pw) => {
+            const storedPassword = cvs[un];
+          if (Array.isArray(storedPassword)) {
+            return storedPassword.includes(pw);
+          }
+          return storedPassword === pw;
+    };
 
-    // const isValidUser = validateUser(cvid, password);
+    const isValidUser = validateUser(cvid, password);
 
-    if (true) {
+    if (isValidUser) {
         try {
 
             let command = new GetObjectCommand({
                 Bucket: "kinetecodd9fd557c04f4e9fb49f6d7a1804df2caf6fe-dev",
-                Key: "tharindu.pdf" // `${cvid}.pdf`
+                Key: `${cvid}.pdf`
             });
             const signedUrl = await getSignedUrl(s3, command, { expiresIn: 3600 });
 

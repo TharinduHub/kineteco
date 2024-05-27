@@ -1,26 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { post } from "aws-amplify/api";
+import CodeInputBoxes from './CodeInputBoxes';
 
 const CvInfo = () => {
 
   const [cvurl, setCvUrl] = useState("");
+  const [code, setCode] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+  
+  const name = "tharindu";
 
-  const loadCvInfo = async (username, password) => {
+  const handleCodeChange = (newCode) => {
+    setCode(newCode);
+  };
 
-    const { body } = await post({
-      apiName: "kinetecocv6p1",
-      path: "/cvinfo",
-      options: {
-        body: { "cvid": username, "password": password }, // Optional, JSON object or FormData
-      }
-    }).response;
-    const data = await body.json();
-    setCvUrl(data.signedUrl);
-  }
+  const handleCodeComplete = (completeCode) => {
+    setIsComplete(true);
+    handleSubmit(completeCode);
+  };
 
-  useEffect(() => {
-    loadCvInfo("tharindu", "psw21");
-  }, []);
+  const handleSubmit = async (event) => {
+    try {
+      const { body } = await post({
+        apiName: "kinetecocv6p1",
+        path: "/cvinfo",
+        options: {
+          body: { "cvid": name, "password": code },
+        }
+      }).response;
+      const data = await body.json();
+      setCvUrl(data.signedUrl);
+    } catch (error) {
+      console.error('Failed to fetch data:', error);
+    }
+  };
 
   return (
     <div id="cvInfo">
@@ -34,13 +47,13 @@ const CvInfo = () => {
         />
       ) : (
         // <p>{cvurl}</p>
-          <div className={styles.authCodeDiv}>
+          <div className="authCodeDiv">
             <h1 style={{ 'paddingBottom': '20px' }}>Authorization Code</h1>
             <form onSubmit={handleSubmit} style={{ 'paddingBottom': '10px' }}>
               <CodeInputBoxes length={4} onChange={handleCodeChange} onComplete={handleCodeComplete} />
             </form>
-            <p className={styles.authCodePara}>A message with a authorization code has been sent to you. Enter the code to viewing {name}'s resume.</p>
-            <a className={styles.underlineLink} href="" rel="test">Didn't get a authorization code?</a>
+            <p className="authCodePara">A message with a authorization code has been sent to you. Enter the code to viewing {name}'s resume.</p>
+            <a className="underlineLink" href="" rel="test">Didn't get a authorization code?</a>
           </div>
       )}
     </div>
