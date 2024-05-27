@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-kineteco-dev-af6fe-unauthRole",
       "StackName": "amplify-kineteco-dev-af6fe",
       "StackId": "arn:aws:cloudformation:eu-north-1:891377298775:stack/amplify-kineteco-dev-af6fe/a57001e0-1831-11ef-b4e8-0e24c393a4ff",
-      "AmplifyAppId": "djhom9bsfjpoe"
+      "AmplifyAppId": "djhom9bsfjpoe",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-kineteco-dev-af6fe-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
@@ -22,8 +23,11 @@
       "function": {
         "kineteco7m6cvv13w37": {
           "deploymentBucketName": "amplify-kineteco-dev-af6fe-deployment",
-          "s3Key": "amplify-builds/kineteco7m6cvv13w37-5164354c536146365775-build.zip"
+          "s3Key": "amplify-builds/kineteco7m6cvv13w37-464932514941644a3463-build.zip"
         }
+      },
+      "storage": {
+        "kinetecon3xtcvv13v373un0r7h": {}
       }
     }
   }

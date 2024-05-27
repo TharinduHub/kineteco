@@ -111,5 +111,12 @@
         }
       ]
     }
+  },
+  "storage": {
+    "kinetecon3xtcvv13v373un0r7h": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
   }
 }

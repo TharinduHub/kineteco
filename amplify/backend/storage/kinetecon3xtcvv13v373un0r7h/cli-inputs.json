@@ -1,0 +1,12 @@
+{
+  "resourceName": "kinetecon3xtcvv13v373un0r7h",
+  "policyUUID": "82c99455",
+  "bucketName": "kinetecodd9fd557c04f4e9fb49f6d7a1804df2c",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

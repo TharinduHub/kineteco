@@ -30,5 +30,11 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     }
+  },
+  "storage": {
+    "kinetecon3xtcvv13v373un0r7h": {
+      "BucketName": "string",
+      "Region": "string"
+    }
   }
 }

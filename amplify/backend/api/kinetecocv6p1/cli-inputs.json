@@ -5,7 +5,13 @@
       "name": "/cvinfo",
       "lambdaFunction": "kineteco7m6cvv13w37",
       "permissions": {
-        "setting": "open"
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
       }
     }
   }

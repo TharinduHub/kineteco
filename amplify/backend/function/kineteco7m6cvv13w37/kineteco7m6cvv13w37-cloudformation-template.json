@@ -266,7 +266,7 @@
                 "s3:GetObject"
               ],
               "Resource": [
-                "arn:aws:s3:::tma-n3xtcvv13v37-3u-n0r7h"
+                "arn:aws:s3:::*"
               ]
             }
           ]
