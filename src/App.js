@@ -8,8 +8,7 @@ import Header from './component/Header';
 import History from './component/History';
 import People from './component/People';
 import Products from './component/Products';
-// import CvInfo from './component/CvInfo';
-import CvInfoPSUrl from './component/CvInfoPSUrl';
+import CvInfo from './component/CvInfo';
 
 class App extends React.Component {
 
@@ -17,8 +16,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <CvInfoPSUrl />
-        {/* <CvInfo /> */}
+        <CvInfo />
         <History />
         <Products />
         <Guarantee />
