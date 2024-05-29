@@ -19,9 +19,9 @@ exports.handler = async (event) => {
 
     const cvs = {
         'cv': 'psw1',
-      'tharindu': ['psw2', 'psw3', 'psw4'],
-      'cv1': ['psw7', 'psw8', 'psw9'],
-      'cv2': 'psw4',
+        'tharindu': ['psw2', 'psw3', 'psw4'],
+        'cv1': ['psw7', 'psw8', 'psw9'],
+        'cv2': 'psw4',
     };
 
     const isBase64Encoded = event.isBase64Encoded;
@@ -35,11 +35,11 @@ exports.handler = async (event) => {
     const { cvid, password } = body;
 
     const validateUser = (un, pw) => {
-            const storedPassword = cvs[un];
-          if (Array.isArray(storedPassword)) {
+        const storedPassword = cvs[un];
+        if (Array.isArray(storedPassword)) {
             return storedPassword.includes(pw);
-          }
-          return storedPassword === pw;
+        }
+        return storedPassword === pw;
     };
 
     const isValidUser = validateUser(cvid, password);
@@ -71,7 +71,7 @@ exports.handler = async (event) => {
     } else {
         return {
             statusCode: 401,
-            body: JSON.stringify({ error: "Unauthorized" })
+            body: JSON.stringify({ error: "Unauthorized Code" })
         };
     }
 };
