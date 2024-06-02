@@ -23,7 +23,7 @@
       "function": {
         "kineteco7m6cvv13w37": {
           "deploymentBucketName": "amplify-kineteco-dev-af6fe-deployment",
-          "s3Key": "amplify-builds/kineteco7m6cvv13w37-546d7476717739487351-build.zip"
+          "s3Key": "amplify-builds/kineteco7m6cvv13w37-30487379355234562b33-build.zip"
         }
       },
       "storage": {
